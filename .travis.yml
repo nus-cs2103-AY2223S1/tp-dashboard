@@ -1,0 +1,12 @@
+language: java
+
+dist: xenial
+
+script: ./run.sh
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: ./configs/travis/deploy_github_pages.sh
+  on:
+    branch: master
