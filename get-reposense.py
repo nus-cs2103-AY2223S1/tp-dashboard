@@ -3,6 +3,7 @@
 import argparse
 import sys
 import os
+import shutil
 import requests
 import subprocess
 
@@ -43,6 +44,9 @@ def get_reposense_jar(url, tag=None):
 
 def clone_and_make_reposense(tag=None):
     
+    # Cleanup cached RepoSense folder
+    shutil.rmtree('RepoSense', ignore_errors=True)
+
     command = \
     '''
     git clone 'https://github.com/reposense/RepoSense.git' &&
