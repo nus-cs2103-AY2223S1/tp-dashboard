@@ -3,23 +3,29 @@
 
 set -o errexit # exit with nonzero exit code if any line fails
 
-if [ -z "$GITHUB_TOKEN" ]; then
-  echo 'GITHUB_TOKEN is not set up in Travis. Skipping deploy.'
+if [ -z "$GITHUB_TOKEN" ] && [ -z "$GITHUB_DEPLOY_KEY" ]; then
+  echo 'GITHUB_TOKEN or GITHUB_DEPLOY_KEY is not set up in Travis. Skipping deploy.'
   exit 0
 fi;
-
-set -o nounset # exit if variable is unset
 
 cd reposense-report
 
 git init
 git config user.name 'Deployment Bot (Travis)'
 git config user.email 'deploy@travis-ci.org'
+git config core.sshCommand "ssh -i ~/id_git -F /dev/null"
 
-git config credential.helper 'store --file=.git/credentials'
-echo "https://${GITHUB_TOKEN}:@github.com" > .git/credentials
+if [ -z "$GITHUB_TOKEN" ]; then
+  echo "$GITHUB_DEPLOY_KEY" | base64 -d > ~/id_git
+  chmod 400 ~/id_git
+  git remote add upstream "git@github.com:${TRAVIS_REPO_SLUG}.git"
+else
+  git config credential.helper 'store --file=.git/credentials'
+  echo "https://${GITHUB_TOKEN}:@github.com" > .git/credentials
+  git remote add upstream "https://github.com/${TRAVIS_REPO_SLUG}.git"
+fi
 
-git remote add upstream "https://github.com/${TRAVIS_REPO_SLUG}.git"
+set -o nounset # exit if variable is unset
 
 # Reset to gh-pages branch, or create orphan branch if gh-pages does not exist in remote.
 if git ls-remote --exit-code --heads upstream gh-pages; then
