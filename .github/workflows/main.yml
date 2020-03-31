@@ -1,0 +1,30 @@
+name: CI
+
+on: 
+  push:
+    branches:
+      - master
+# For scheduled deployment with Cron Jobs.
+## Examples of cron schedule expressions:
+### '0 * * * *': hourly
+### '0 0 * * *': daily
+### '0 0 1 * *': monthly
+#   schedule:
+#     - cron:  '0 0 * * *'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: pip install requests
+    - name: Generate report
+      run: bash ./run.sh
+    - name: Deploy GitHub pages
+      run: |
+        export TOKEN=${{ secrets.ACCESS_TOKEN }}
+        export DEPLOY_KEY=${{ secrets.DEPLOY_KEY }}
+        source ./configs/github.sh
+        source ./configs/deploy.sh

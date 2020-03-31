@@ -3,26 +3,26 @@
 
 set -o errexit # exit with nonzero exit code if any line fails
 
-if [ -z "$GITHUB_TOKEN" ] && [ -z "$GITHUB_DEPLOY_KEY" ]; then
-  echo 'GITHUB_TOKEN or GITHUB_DEPLOY_KEY is not set up in Travis. Skipping deploy.'
+if [ -z "$TOKEN" ] && [ -z "$DEPLOY_KEY" ]; then
+  echo "$TOKEN_NAME or $DEPLOY_KEY_NAME is not set up in $ENV_NAME. Skipping deploy."
   exit 0
 fi;
 
 cd reposense-report
 
 git init
-git config user.name 'Deployment Bot (Travis)'
-git config user.email 'deploy@travis-ci.org'
+git config user.name "$GIT_USERNAME"
+git config user.email "$GIT_EMAIL"
 git config core.sshCommand "ssh -i ~/id_git -F /dev/null"
 
-if [ -z "$GITHUB_TOKEN" ]; then
-  echo "$GITHUB_DEPLOY_KEY" | base64 -d > ~/id_git
+if [ -z "$TOKEN" ]; then
+  echo "$DEPLOY_KEY" | base64 -d > ~/id_git
   chmod 400 ~/id_git
-  git remote add upstream "git@github.com:${TRAVIS_REPO_SLUG}.git"
+  git remote add upstream "git@github.com:${REPO_SLUG}.git"
 else
   git config credential.helper 'store --file=.git/credentials'
-  echo "https://${GITHUB_TOKEN}:@github.com" > .git/credentials
-  git remote add upstream "https://github.com/${TRAVIS_REPO_SLUG}.git"
+  echo "https://${TOKEN}:@github.com" > .git/credentials
+  git remote add upstream "https://github.com/${REPO_SLUG}.git"
 fi
 
 set -o nounset # exit if variable is unset
@@ -44,5 +44,5 @@ if changes=$(git status --porcelain) && [ -z "$changes" ]; then
 fi
 
 git add -A .
-git commit -m "Rebuild pages at ${TRAVIS_COMMIT}"
+git commit -m "Rebuild pages at $COMMIT"
 git push --quiet upstream HEAD:gh-pages
