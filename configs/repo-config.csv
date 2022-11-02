@@ -10,7 +10,7 @@ https://github.com/AY2223S1-CS2103-F14-3/tp.git,master,java;fxml;bat;sh;css;xml;
 https://github.com/AY2223S1-CS2103-F13-2/tp.git,master,java;fxml;bat;sh;css;xml;md;adoc;puml;properties;gradle,tutorials/**,,,,,
 https://github.com/AY2223S1-CS2103-F13-3/tp.git,master,java;fxml;bat;sh;css;xml;md;adoc;puml;properties;gradle,tutorials/**,,,,,
 https://github.com/AY2223S1-CS2103-F14-2/tp.git,master,java;fxml;bat;sh;css;xml;md;adoc;puml;properties;gradle,tutorials/**,,,,,
-https://github.com/AY2223S1-CS2103-F14-1/tp.git,master,java;fxml;bat;sh;css;xml;md;adoc;puml;properties;gradle,tutorials/**,,,,,
+https://github.com/AY2223S1-CS2103-F14-1/tp.git,master,java;fxml;bat;sh;css;xml;md;adoc;puml;properties;gradle,tutorials/**;src/main/java/org/openapitools/**,,,,,
 https://github.com/AY2223S1-CS2103T-T11-1/tp.git,master,java;fxml;bat;sh;css;xml;md;adoc;puml;properties;gradle,tutorials/**,,,,,
 https://github.com/AY2223S1-CS2103T-W13-4/tp.git,master,java;fxml;bat;sh;css;xml;md;adoc;puml;properties;gradle,tutorials/**,,,,,
 https://github.com/AY2223S1-CS2103T-W13-1/tp.git,master,java;fxml;bat;sh;css;xml;md;adoc;puml;properties;gradle,tutorials/**,,,,,
