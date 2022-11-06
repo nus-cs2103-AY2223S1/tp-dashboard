@@ -8,9 +8,6 @@ https://github.com/AY2223S1-CS2103-F13-1/tp.git,test-code,src/test/**
 https://github.com/AY2223S1-CS2103-F09-2/tp.git,docs,**.md;**.adoc;**.puml
 https://github.com/AY2223S1-CS2103-F09-2/tp.git,functional-code,src/main/**
 https://github.com/AY2223S1-CS2103-F09-2/tp.git,test-code,src/test/**
-https://github.com/AY2223S1-CS2103-W14-1/tp.git,docs,**.md;**.adoc;**.puml
-https://github.com/AY2223S1-CS2103-W14-1/tp.git,functional-code,src/main/**
-https://github.com/AY2223S1-CS2103-W14-1/tp.git,test-code,src/test/**
 https://github.com/AY2223S1-CS2103-F09-1/tp.git,docs,**.md;**.adoc;**.puml
 https://github.com/AY2223S1-CS2103-F09-1/tp.git,functional-code,src/main/**
 https://github.com/AY2223S1-CS2103-F09-1/tp.git,test-code,src/test/**
@@ -20,6 +17,9 @@ https://github.com/AY2223S1-CS2103-F13-4/tp.git,test-code,src/test/**
 https://github.com/AY2223S1-CS2103-F14-4/tp.git,docs,**.md;**.adoc;**.puml
 https://github.com/AY2223S1-CS2103-F14-4/tp.git,functional-code,src/main/**
 https://github.com/AY2223S1-CS2103-F14-4/tp.git,test-code,src/test/**
+https://github.com/AY2223S1-CS2103-W14-1/tp.git,docs,**.md;**.adoc;**.puml
+https://github.com/AY2223S1-CS2103-W14-1/tp.git,functional-code,src/main/**
+https://github.com/AY2223S1-CS2103-W14-1/tp.git,test-code,src/test/**
 https://github.com/AY2223S1-CS2103-F14-3/tp.git,docs,**.md;**.adoc;**.puml
 https://github.com/AY2223S1-CS2103-F14-3/tp.git,functional-code,src/main/**
 https://github.com/AY2223S1-CS2103-F14-3/tp.git,test-code,src/test/**
